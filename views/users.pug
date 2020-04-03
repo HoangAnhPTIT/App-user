@@ -1,15 +1,21 @@
 extends layout.pug
 block content
-	h1 Home
+	h1 
+		span.mr-2 Users
+		a(class="btn btn-primary mb-2" href="/users/create") Create New User
+	.d-flex.justify-content-end
+		form(action="/users/search" method="GET" class="d-flex")
+			input(name="q" type="text" class="form-control")
+			button(type="submit" class="btn btn-secondary") Search 
+	table.table
+		tr
+			th Name
+			th Phone
+			th Actions
 
-	a(href="/users/create") Create New User
-
-	form(action="/users/search" method="GET")
-		input(name="q" type="text")
-		button(type="submit" ) Search 
-	ul
 		each user in users
-			li
-				span=user.name
-				span &nbsp
-				a(href='/users/'+user.id) View
+			tr
+				td=user.name
+				td=user.phone
+				td
+					a(href='/users/'+user.id) View
