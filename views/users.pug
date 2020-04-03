@@ -1,0 +1,13 @@
+h1 Home
+
+a(href="/users/create") Create New User
+
+form(action="/users/search" method="GET")
+	input(name="q" type="text")
+	button(type="submit" ) Search 
+ul
+	each user in users
+		li
+			span=user.name
+			span &nbsp
+			a(href='/users/'+user.id) View
