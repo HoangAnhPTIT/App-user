@@ -1,7 +1,11 @@
-h1 Create user
+extends layout.pug
+block content
 
-form(action="/users/create" method="POST")
-	lable Name
-	input(type="text" name="name")
+	h1(class="m-5") Create user
 
-	button Create
+	form(action="/users/create" method="POST" class="d-flex")
+		label(for="name") Name
+		span &nbsp
+		input(type="text" name="name" id="name" class="form-control mr-1")
+
+		button Create
