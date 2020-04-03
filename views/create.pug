@@ -3,9 +3,13 @@ block content
 
 	h1(class="m-5") Create user
 
-	form(action="/users/create" method="POST" class="d-flex")
-		label(for="name") Name
-		span &nbsp
-		input(type="text" name="name" id="name" class="form-control mr-1")
+	if errs
+		each err in errs
+			.alert.alert-danger= err
 
-		button Create
+	form(action="/users/create" method="POST" class="form-group")
+		label(for="name") Name
+		input(type="text" name="name" id="name" class="form-control mr-1" value=values ? values.name : "")
+		label(for="phone") Phone Number
+		input(type="text" name="phone" id="phone" class="form-control mr-1" value=values ? values.phone : "")
+		button.btn.btn-primary.mt-2 Create
