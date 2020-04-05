@@ -1,0 +1,16 @@
+extends ../layout.pug
+block content
+
+	h1 Login
+
+	if errs
+		each err in errs
+			.alert.alert-danger= err
+
+	form(action="/users/create" method="POST" class="form-group")
+		label(for="email") Email
+		input(type="text" name="email" id="email" class="form-control mr-1" value=values ? values.email : "")
+		label(for="password") Password
+		input(type="password" name="password" id="password" class="form-control mr-1" value=values ? values.password : "")
+
+		button.btn.btn-primary.mt-2 Login
