@@ -1,7 +1,7 @@
 
 const db = require('../db')
 const shortid = require('shortid')
-
+const validate = require('../validate/user.validate')
 
 module.exports.index = function(req,res){
 	res.render('users',{
@@ -33,20 +33,7 @@ module.exports.getId = (req, res)=>{
 
 module.exports.postCreate = (req, res) => {
 	req.body.id= shortid.generate()
-	var err = []
-
-	if(!req.body.name)
-		err.push('Name is required')
-	if(!req.body.phone)
-		err.push('Phone is required')
-	if(err.length){
-		res.render('create',{
-			errs: err,
-			values: req.body
-		})
-
-		return;
-	}
+	
 	db.get('users').push(req.body).write()
 	res.redirect('/users')
 }
