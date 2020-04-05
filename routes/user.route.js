@@ -4,12 +4,9 @@ const validate = require('../validate/user.validate')
 const shortid = require('shortid')
 const controller = require('../controllers/controller')
 
-router.get('',controller.index)
 
-router.get('/cookie',(req, res, next) =>{
-	res.cookie('user-id', 12345)
-	res.send('Hello')
-})
+
+router.get('/',controller.index)
 
 router.get('/search', controller.search)
 

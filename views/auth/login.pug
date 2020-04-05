@@ -7,7 +7,7 @@ block content
 		each err in errs
 			.alert.alert-danger= err
 
-	form(action="/users/create" method="POST" class="form-group")
+	form( method="POST" class="form-group")
 		label(for="email") Email
 		input(type="text" name="email" id="email" class="form-control mr-1" value=values ? values.email : "")
 		label(for="password") Password

@@ -4,6 +4,7 @@ const port = 3000
 const userRoute = require('./routes/user.route')
 const authRoute = require('./routes/auth.route')
 var cookieParser = require('cookie-parser')
+const authMiddleware = require('./middlewares/auth.middleware')
 
 app.set('view engine', 'pug')
 app.set('views', './views')
@@ -15,7 +16,8 @@ app.use(cookieParser())
 
 app.get('/', (req, res) => res.render('index'))
 
-app.use('/users', userRoute)
+app.use('/users',authMiddleware.requireAuth, userRoute)
+
 app.use('/auth', authRoute)
 
 
