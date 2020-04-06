@@ -14,7 +14,9 @@ html
 						a(class="nav-link" href="/users") Home
 					li(class="nav-item active")
 						a(class="nav-link" href="/auth/login") Login
-
+			if user
+				p=user.name
+ 
 		.container.pt-5
 			block content
 	
