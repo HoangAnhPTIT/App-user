@@ -1,0 +1,14 @@
+extends ../layout.pug
+block content
+	h2(class="ml-5") Products
+	.form-group.d-flex.justify-content-end
+		input(type="text" )
+		button.btn.btn-primary Search
+	div(class="row container")
+		each product in products
+			div(class="card ml-auto mb-3" style="width: 18rem;")
+				img(src=product.image)
+				div(class="card-body")
+					h5.card-title=product.nam
+					p.card-text=product.description
+					a(href=product.ip_address class="btn btn-primary") Go to product

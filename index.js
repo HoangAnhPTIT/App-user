@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 const userRoute = require('./routes/user.route')
 const authRoute = require('./routes/auth.route')
+const productRoute = require('./routes/products.route')
 var cookieParser = require('cookie-parser')
 const authMiddleware = require('./middlewares/auth.middleware')
 
@@ -20,7 +21,7 @@ app.use('/users',authMiddleware.requireAuth, userRoute)
 
 app.use('/auth', authRoute)
 
-
+app.use('/product',productRoute)
 
 
 
