@@ -21,7 +21,7 @@ app.use('/users',authMiddleware.requireAuth, userRoute)
 
 app.use('/auth', authRoute)
 
-app.use('/product',productRoute)
+app.use('/product',authMiddleware.requireAuth,productRoute)
 
 
 
